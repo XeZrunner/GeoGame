@@ -1,0 +1,143 @@
+﻿<Page x:Class="GeoGame.Map.Mapping"
+      xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+      xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+      xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+      xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+      xmlns:local="clr-namespace:GeoGame.Map"
+      mc:Ignorable="d" 
+      d:DesignWidth="2598" d:DesignHeight="1931"
+      Title="Mapping">
+
+    <Viewbox Stretch="Uniform">
+        <Grid MouseLeftButtonUp="Canvas_MouseLeftButtonUp">
+
+            <!-- Source="E:\VS Projects\GeoGame\bin\Debug\maps\map.jpg" -->
+            <Image x:Name="image" Source="E:\VS Projects\GeoGame\bin\Debug\maps\map.jpg"
+                   Stretch="Uniform"/>
+
+            <Canvas x:Name="locations_canvas" Width="2598" Height="1931" Opacity="0.45">
+
+                <local:LocationItem Location="Nagytárkány" LocationSK="Veľké Trakany" LocationWidth="225" Panel.ZIndex="0"
+                                    Canvas.Left="2038" Canvas.Top="1310" Click="location_Click" />
+
+                <local:LocationItem Location="Királyhelmec" LocationSK="Kráľovský Chlmec" LocationWidth="260" Panel.ZIndex="1"
+                                    Canvas.Left="1555" Canvas.Top="1108" Click="location_Click" />
+
+                <local:LocationItem Location="Lelesz" LocationSK="Leles" LocationWidth="210" Panel.ZIndex="2"
+                                    Canvas.Left="1820" Canvas.Top="814" Click="location_Click" />
+
+                <local:LocationItem Location="Bacska" LocationSK="Bačka" LocationWidth="210" Panel.ZIndex="3"
+                                    Canvas.Left="1946" Canvas.Top="977" Click="location_Click" />
+
+                <local:LocationItem Location="Perbenyík" LocationSK="Pribeník" LocationWidth="210" Panel.ZIndex="3"
+                                    Canvas.Left="1731" Canvas.Top="1325" Click="location_Click" />
+
+                <local:LocationItem Location="Dobra" LocationSK="Dobrá" LocationWidth="120" Panel.ZIndex="4"
+                                    Canvas.Left="1815" Canvas.Top="1238" Click="location_Click" />
+
+                <local:LocationItem Location="Nagykövesd" LocationSK="Veľký Kamenec" LocationWidth="200" Panel.ZIndex="5"
+                                    Canvas.Left="852" Canvas.Top="1596" Click="location_Click" />
+
+                <local:LocationItem Location="Bodrogszerdahely" LocationSK="Streda nad Bodrogom" LocationWidth="305" LocationHeight="235" Panel.ZIndex="6"
+                                    Canvas.Left="588" Canvas.Top="1464" Click="location_Click" />
+
+                <local:LocationItem Location="Bély" LocationSK="Biel" LocationWidth="150" Panel.ZIndex="7"
+                                    Canvas.Left="1946" Canvas.Top="1208" Click="location_Click" />
+
+                <local:LocationItem Location="Battyán" LocationSK="Boťany" LocationWidth="140" Panel.ZIndex="8"
+                                    Canvas.Left="2171" Canvas.Top="980" Click="location_Click" />
+
+                <local:LocationItem Location="Ágcsernyő" LocationSK="Čierna" LocationWidth="185" LocationHeight="135" Panel.ZIndex="9"
+                                    Canvas.Left="2205" Canvas.Top="1085" Click="location_Click" />
+
+                <local:LocationItem Location="Kisgéres" LocationSK="Malý Horeš" LocationWidth="190" Panel.ZIndex="10"
+                                    Canvas.Left="1443" Canvas.Top="1265" Click="location_Click" />
+
+                <local:LocationItem Location="Szentes" LocationSK="Svätuše" LocationWidth="180" Panel.ZIndex="11"
+                                    Canvas.Left="1293" Canvas.Top="1119" Click="location_Click" />
+
+                <local:LocationItem Location="Szomotor" LocationSK="Somotor" LocationWidth="165" Panel.ZIndex="12"
+                                    Canvas.Left="852" Canvas.Top="1325" Click="location_Click" />
+
+                <local:LocationItem Location="Ladmóc" LocationSK="Ladmovce" LocationWidth="173" Panel.ZIndex="13"
+                                    Canvas.Left="659" Canvas.Top="1225" Click="location_Click" />
+
+                <local:LocationItem Location="Szőlőske" LocationSK="Viničky" LocationWidth="160" LocationHeight="130" Panel.ZIndex="14"
+                                    Canvas.Left="542" Canvas.Top="1325" Click="location_Click" />
+
+                <local:LocationItem Location="Szentmária" LocationSK="Svätá Mária" LocationWidth="250" Panel.ZIndex="15"
+                                    Canvas.Left="1004" Canvas.Top="1085" Click="location_Click" />
+
+                <local:LocationItem Location="Szinyér" LocationSK="Svinice" LocationWidth="130" Panel.ZIndex="16"
+                                    Canvas.Left="1203" Canvas.Top="950" Click="location_Click" />
+
+                <local:LocationItem Location="Véke" LocationSK="Vojka" LocationWidth="130" Panel.ZIndex="17"
+                                    Canvas.Left="1316" Canvas.Top="934" Click="location_Click" />
+
+                <local:LocationItem Location="Zétény" LocationSK="Zatín" LocationWidth="130" Panel.ZIndex="18"
+                                    Canvas.Left="1266" Canvas.Top="786" Click="location_Click" />
+
+                <local:LocationItem Location="Rad" LocationSK="Rad" LocationWidth="125" Panel.ZIndex="19"
+                                    Canvas.Left="1114" Canvas.Top="920" Click="location_Click" />
+
+                <local:LocationItem Location="Boly" LocationSK="Boľ" LocationWidth="135" Panel.ZIndex="20"
+                                    Canvas.Left="1463" Canvas.Top="868" Click="location_Click" />
+
+                <local:LocationItem Location="Pólyán" LocationSK="Poľany" LocationWidth="135" Panel.ZIndex="21"
+                                    Canvas.Left="1680" Canvas.Top="889" Click="location_Click" />
+
+                <local:LocationItem Location="Szolnocska" LocationSK="Soľnička" LocationWidth="210" LocationHeight="135" Panel.ZIndex="21"
+                                    Canvas.Left="1517" Canvas.Top="769" Click="location_Click" />
+
+                <local:LocationItem Location="Imreg" LocationSK="Brehov" LocationWidth="215" Panel.ZIndex="22"
+                                    Canvas.Left="802" Canvas.Top="701" Click="location_Click" />
+
+                <local:LocationItem Location="Szirénfalva" LocationSK="Ptrukša" LocationWidth="225" LocationHeight="175" Panel.ZIndex="23"
+                                    Canvas.Left="2281" Canvas.Top="683" Click="location_Click" />
+
+                <local:LocationItem Location="Nagyszelmenc" LocationSK="Veľké Slemence" LocationWidth="255" LocationHeight="175" Panel.ZIndex="24"
+                                    Canvas.Left="2271" Canvas.Top="566" Click="location_Click" />
+
+                <local:LocationItem Location="Dobóruszka" LocationSK="Ruská" LocationWidth="175" Panel.ZIndex="25"
+                                    Canvas.Left="2264" Canvas.Top="446" Click="location_Click" />
+
+                <local:LocationItem Location="Kaposkelecsény" LocationSK="Kapušianske Kľačany" LocationWidth="255" LocationHeight="175" Panel.ZIndex="24"
+                                    Canvas.Left="2118" Canvas.Top="417" Click="location_Click" />
+
+                <local:LocationItem Location="Budaháza" LocationSK="Budince" LocationWidth="175" Panel.ZIndex="26"
+                                    Canvas.Left="2305" Canvas.Top="299" Click="location_Click" />
+
+                <local:LocationItem Location="Csicser" LocationSK="Čičarovce" LocationWidth="175" Panel.ZIndex="27"
+                                    Canvas.Left="1784" Canvas.Top="388" Click="location_Click" />
+
+                <local:LocationItem Location="Bés" LocationSK="Beša" LocationWidth="175" Panel.ZIndex="28"
+                                    Canvas.Left="1423" Canvas.Top="388" Click="location_Click" />
+
+                <local:LocationItem Location="Nagykapos" LocationSK="Veľké Kapušany" LocationWidth="195" Panel.ZIndex="28"
+                                    Canvas.Left="2017" Canvas.Top="264" Click="location_Click" />
+
+                <local:LocationItem Location="Veslóc" LocationSK="Veškovce" LocationWidth="105" Panel.ZIndex="29"
+                                    Canvas.Left="2164" Canvas.Top="220" Click="location_Click" />
+
+                <local:LocationItem Location="Mátyóc" LocationSK="Matovce" LocationWidth="145" Panel.ZIndex="30"
+                                    Canvas.Left="2256" Canvas.Top="143" Click="location_Click" />
+
+                <local:LocationItem Location="Vajkóc" LocationSK="Vojkovce" LocationWidth="145" Panel.ZIndex="31"
+                                    Canvas.Left="2383" Canvas.Top="149" Click="location_Click" />
+
+                <local:LocationItem Location="Nagygéres" LocationSK="Veľký Horeš" LocationWidth="185" Panel.ZIndex="32"
+                                    Canvas.Left="1336" Canvas.Top="1435" Click="location_Click" />
+
+                <local:LocationItem Location="Őrös" LocationSK="Strážne" LocationWidth="105" Panel.ZIndex="33"
+                                    Canvas.Left="1134" Canvas.Top="1582" Click="location_Click" />
+
+                <local:LocationItem Location="Kistárkány" LocationSK="Malé Trakany" LocationWidth="125" Panel.ZIndex="32" Foreground="Black"
+                                    Canvas.Left="2212" Canvas.Top="1318" Click="location_Click" />
+
+                <local:LocationItem Location="Tiszacsernyő" LocationSK="Čierna nad Tisou" LocationWidth="255" LocationHeight="135" Panel.ZIndex="32"
+                                    Canvas.Left="2190" Canvas.Top="1199" Click="location_Click" />
+
+            </Canvas>
+        </Grid>
+    </Viewbox>
+</Page>

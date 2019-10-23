@@ -1,0 +1,14 @@
+﻿<Application x:Class="GeoGame.App"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:local="clr-namespace:GeoGame"
+             StartupUri="Windows/ControllerWindow.xaml">
+    <Application.Resources>
+        <ResourceDictionary x:Name="themeDictionary">
+            <ResourceDictionary.MergedDictionaries>
+                <ResourceDictionary Source="pack://application:,,,/XeZrunner.UI;component/Theming/Themes.xaml" />
+                <ResourceDictionary Source="pack://application:,,,/XeZrunner.UI;component/Theming/Accents.xaml" />
+            </ResourceDictionary.MergedDictionaries>
+        </ResourceDictionary>
+    </Application.Resources>
+</Application>

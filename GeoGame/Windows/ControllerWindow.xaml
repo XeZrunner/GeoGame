@@ -1,0 +1,149 @@
+﻿<Window x:Class="GeoGame.Windows.ControllerWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:xezui_buttons="clr-namespace:XeZrunner.UI.Controls.Buttons;assembly=XeZrunner.UI"
+        xmlns:xezui_controls="clr-namespace:XeZrunner.UI.Controls;assembly=XeZrunner.UI"
+        xmlns:xezui_popups="clr-namespace:XeZrunner.UI.Popups;assembly=XeZrunner.UI"
+        xmlns:xezui_window="clr-namespace:XeZrunner.UI.Controls.Window_components;assembly=XeZrunner.UI"
+        xmlns:xz_controlfx="clr-namespace:XeZrunner.UI.ControlEffects;assembly=XeZrunner.UI"
+        xmlns:local="clr-namespace:GeoGame.Windows" KeyDown="Window_KeyDown"
+        mc:Ignorable="d" Closing="Window_Closing" Loaded="Window_Loaded" Background="{DynamicResource Background}" Foreground="{DynamicResource Foreground}"
+        Title="ControllerWindow" Height="650" Width="805" Topmost="False" WindowStartupLocation="Manual" Left="65" Top="65" WindowStyle="None" AllowsTransparency="True" xz_controlfx:PointerTracker.Enabled="True">
+
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="32" />
+            <RowDefinition Height="Auto" />
+            <RowDefinition />
+        </Grid.RowDefinitions>
+
+        <ScrollViewer Grid.Row="2" HorizontalScrollBarVisibility="Disabled" VerticalScrollBarVisibility="Auto">
+            <Grid>
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition />
+                    <ColumnDefinition />
+                </Grid.ColumnDefinitions>
+
+                <StackPanel HorizontalAlignment="Center" VerticalAlignment="Center">
+
+                    <Grid Margin="0,0,0,8">
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition />
+                            <ColumnDefinition Width="Auto" />
+                        </Grid.ColumnDefinitions>
+
+                        <TextBlock x:Name="gameStatusText" Text="Játék állapota"/>
+
+                    </Grid>
+
+                    <Grid Margin="0,0,0,8">
+                        <xezui_buttons:Button x:Name="startButton" Text="Játék indítása" Click="StartButton_Click" />
+                    </Grid>
+
+                    <Grid Margin="0,0,0,8">
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition />
+                            <ColumnDefinition Width="Auto" />
+                        </Grid.ColumnDefinitions>
+                        <xezui_buttons:Button x:Name="positionButton" Text="Játék ablak pozicionálása" Click="PositionButton_Click" IsEnabled="False" />
+                        <TextBox x:Name="secondarymonitorTextBox" Text="1" Background="{DynamicResource Background}" Foreground="{DynamicResource Foreground}" BorderThickness="1" BorderBrush="{DynamicResource Background_Secondary}" Grid.Column="1" Width="32" Height="32" TextAlignment="Center" VerticalContentAlignment="Center" Margin="2,0,0,0" />
+                    </Grid>
+
+                    <xezui_buttons:Button x:Name="chooselocationButton" Text="Település kiválasztása" Click="ChooselocationButton_Click" Margin="0,0,0,8" IsEnabled="False" />
+
+                    <StackPanel Orientation="Horizontal" Margin="0,0,0,10">
+                        <xezui_controls:CheckBox x:Name="game_cursorCheckBox" IsActive="True" IsActiveChanged="Game_cursorCheckBox_IsActiveChanged" />
+                        <TextBlock Text="Egérkurzor mutatása" FontSize="14" VerticalAlignment="Center" Margin="8,0,0,0" />
+                    </StackPanel>
+
+                    <TextBlock Text="Települések mutatása" Margin="0,0,0,5" />
+
+                    <StackPanel x:Name="locationitem_debugstackpanel" Margin="0,0,0,10" IsEnabled="False">
+
+                        <xezui_controls:RadioButton x:Name="locitem_debugHidden" Text="Elrejtés (nincs animáció)" IsActiveChanged="Locitem_DEBUG_Click" Opacity="0.7" />
+                        <xezui_controls:RadioButton x:Name="locitem_debugHide" Text="Elrejtés" IsActiveChanged="Locitem_DEBUG_Click" Margin="0,0,0,4" />
+                        <xezui_controls:RadioButton x:Name="locitem_debugShowText" Text="Települések nevei" IsActiveChanged="Locitem_DEBUG_Click" Margin="0,0,0,4" />
+                        <xezui_controls:RadioButton x:Name="locitem_debugShowAll" Text="Hitboxok és nevek mutatása" IsActiveChanged="Locitem_DEBUG_Click" />
+                        <xezui_controls:RadioButton x:Name="locitem_debugShowAll_Error" Text="Hitboxok és nevek mutatása (helytelen)" IsActiveChanged="Locitem_DEBUG_Click" Opacity="0.7" Margin="0,0,0,4" />
+                        <xezui_controls:RadioButton x:Name="locitem_debugShowEllipse" Text="Csak a hitboxok mutatása" IsActiveChanged="Locitem_DEBUG_Click" Opacity="0.7" />
+
+                    </StackPanel>
+
+                    <StackPanel Orientation="Horizontal" Margin="0,0,0,10">
+                        <xezui_controls:CheckBox x:Name="game_autophaseCheckBox" IsActive="False" IsActiveChanged="game_autophaseCheckBox_IsActiveChanged" />
+                        <TextBlock Text="Automatikus fázis (végjáték)" FontSize="14" VerticalAlignment="Center" Margin="8,0,0,0" />
+                    </StackPanel>
+
+                    <StackPanel Orientation="Horizontal" Margin="0,0,0,10">
+                        <xezui_controls:CheckBox x:Name="game_autopilotShowCorrectionCheckBox" IsActive="True" IsActiveChanged="game_autopilotShowCorrectionCheckBox_IsActiveChanged" />
+                        <TextBlock Text="Javítás mutatása automatikus fázisban" FontSize="14" VerticalAlignment="Center" Margin="8,0,0,0" />
+                    </StackPanel>
+
+                    <xezui_buttons:Button x:Name="game_autophaseResetButton" Text="Automatikus fázis újraindítása" Click="game_autophaseResetButton_Click" IsEnabled="False" />
+
+                </StackPanel>
+                <StackPanel x:Name="debugPanel" Grid.Column="1" HorizontalAlignment="Center" VerticalAlignment="Center">
+
+                    <TextBlock Text="DEBUG " Margin="0,0,0,8" />
+
+                    <StackPanel x:Name="UIDebug_Panel">
+
+                        <StackPanel Orientation="Horizontal" Margin="0,0,0,8">
+                            <xezui_buttons:Button x:Name="ui_lightButton" Text="Light theme" Click="Ui_lightButton_Click" />
+                            <xezui_buttons:Button x:Name="ui_darkButton" Text="Dark theme" Click="Ui_darkButton_Click" />
+                        </StackPanel>
+
+                        <xezui_buttons:Button x:Name="ui_contentdialogButton" Text="Content dialog test" Click="Ui_cntdlgButton_Click" Margin="0,0,0,8" />
+
+                        <StackPanel x:Name="game_progressUIDebugPanel" Margin="0,0,0,8" IsEnabled="False">
+                            <xezui_buttons:Button x:Name="game_loadingShowButton" Text="Show progress UI" Click="Game_loadingShowButton_Click" />
+                            <xezui_buttons:Button x:Name="game_loadingHideButton" Text="Hide progress UI" Click="Game_loadingHideButton_Click" />
+                        </StackPanel>
+
+                        <StackPanel x:Name="gameWindow_UIDebugPanel" Margin="0,0,0,10" IsEnabled="False">
+                            <xezui_buttons:Button x:Name="game_chooselocationDebugButton" Text="UI: Choose Location!" Click="Game_chooselocationDebugButton_Click" />
+                            <xezui_buttons:Button x:Name="game_correctDebugButton" Text="UI: Correct!" Click="Game_correctDebugButton_Click" />
+                            <xezui_buttons:Button x:Name="game_wrongDebugButton" Text="UI: Wrong!" Click="Game_wrongDebugButton_Click" />
+                        </StackPanel>
+
+                        <StackPanel Margin="0,0,0,8">
+                            <xezui_buttons:Button x:Name="game_autopilotDebugRemoveButton" Text="Autopilot: skip to end" Click="game_autopilotDebugRemoveButton_Click" IsEnabled="False" />
+                        </StackPanel>
+
+                        <StackPanel Orientation="Horizontal" Margin="0,0,0,8">
+                            <xezui_controls:CheckBox x:Name="game_debugCheckBox" IsActive="False" IsActiveChanged="Game_debugCheckBox_IsActiveChanged" />
+                            <TextBlock Text="Enable in-game debug status" FontSize="14" VerticalAlignment="Center" Margin="8,0,0,0" />
+                        </StackPanel>
+
+                        <StackPanel Orientation="Horizontal" Margin="0,0,0,8">
+                            <xezui_controls:CheckBox x:Name="game_locationsOpacityCheckBox" IsActive="False" IsActiveChanged="Game_locationsOpacityCheckBox_IsActiveChanged" />
+                            <TextBlock Text="Települések elhalványítása" FontSize="14" VerticalAlignment="Center" Margin="8,0,0,0" />
+                        </StackPanel>
+
+                    </StackPanel>
+
+                </StackPanel>
+
+            </Grid>
+        </ScrollViewer>
+
+        <TextBlock Grid.Row="2" Foreground="{DynamicResource Foreground_Secondary}" HorizontalAlignment="Center" VerticalAlignment="Bottom" Text="A játékot Kassai Sebastian készítette. 2019 október" Opacity="0.4" Margin="0,5"
+                   FontFamily="/Fonts/#Google Sans"/>
+
+        <Rectangle Grid.RowSpan="2" x:Name="NoSecondaryScreen_Rectangle" Fill="{DynamicResource Accent}" />
+
+        <TextBlock Grid.Row="1" x:Name="NoSecondaryScreen_Block" Text="Nem található második kijelző - a játék ezen a kijelzőn fog futni!"
+                   Foreground="White" FontFamily="Segoe UI Semibold" Margin="0,8"
+                   VerticalAlignment="Center" HorizontalAlignment="Center"/>
+
+        <xezui_popups:ContentDialogHost x:Name="dialogHost" Grid.RowSpan="3" />
+
+        <xezui_window:TitlebarControl x:Name="titleBar" Foreground="White" Theme="Dark" AppTitle="Geográfia-verseny játék control panel" MaximizeButtonVisibility="Collapsed" MenuButtonVisibility="Collapsed" />
+
+        <!-- theme changing image -11 -->
+        <Image x:Name="themechangeImage" Margin="0" Stretch="None" Visibility="Hidden" Grid.RowSpan="3" />
+
+    </Grid>
+</Window>
