@@ -449,7 +449,7 @@
                                FontFamily="/Fonts/#Google Sans Medium" FontSize="78"/>
 
                         <StackPanel Grid.Row="1">
-                            <TextBlock Text="Nájdi čo najviac sídla!"
+                            <TextBlock Text="Nájdi čo najviac sídiel!"
                                FontFamily="/Fonts/#Google Sans" FontSize="54" />
                         </StackPanel>
 

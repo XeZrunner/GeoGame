@@ -39,6 +39,9 @@ namespace GeoGame.Windows
         {
             game.GameStatusChanged += Game_GameStatusChanged;
             ThemeManager.ConfigChanged += ThemeManager_ConfigChanged;
+
+            // set default theming
+            ThemeManager.Config_SetAccent(ThemeManager.Accent.Orange);
             XZUI_Config.controlfx = "Reveal"; XZUI_Config.Save();
 
             // check for the secondary screen
@@ -127,6 +130,7 @@ namespace GeoGame.Windows
             game_progressUIDebugPanel.IsEnabled = true;
             game_autophaseResetButton.IsEnabled = true;
             game_autopilotDebugRemoveButton.IsEnabled = true;
+            slovakSwitch.IsEnabled = true;
         }
 
         private void Mapping_LocationItemStatesChanged(object sender, int e)
@@ -160,7 +164,10 @@ namespace GeoGame.Windows
             List<string> Locations;
 
             if (!Keyboard.IsKeyDown(Key.LeftShift))
-                Locations = gameWindow.mapping.Locations;
+            {
+                //Locations = gameWindow.mapping.Locations;
+                Locations = gameWindow.mapping.GetAllLocations();
+            }                
             else
             {
                 Locations = gameWindow.mapping.Locations_auto;
@@ -217,7 +224,20 @@ namespace GeoGame.Windows
                 if (Keyboard.IsKeyDown(Key.E))
                     ThemeManager.Config_SetTheme(ThemeManager.Theme.Dark);
 
-                titleBar.Theme = ThemeManager.CurrentTheme;
+                if (Keyboard.IsKeyDown(Key.D0))
+                    ThemeManager.Config_SetAccent(ThemeManager.Accent.Teal);
+                if (Keyboard.IsKeyDown(Key.D1))
+                    ThemeManager.Config_SetAccent(ThemeManager.Accent.Blue);
+                if (Keyboard.IsKeyDown(Key.D2))
+                    ThemeManager.Config_SetAccent(ThemeManager.Accent.Green);
+                if (Keyboard.IsKeyDown(Key.D3))
+                    ThemeManager.Config_SetAccent(ThemeManager.Accent.Orange);
+                if (Keyboard.IsKeyDown(Key.D4))
+                    ThemeManager.Config_SetAccent(ThemeManager.Accent.Pink);
+                if (Keyboard.IsKeyDown(Key.D5))
+                    ThemeManager.Config_SetAccent(ThemeManager.Accent.Purple);
+
+                //titleBar.Theme = ThemeManager.CurrentTheme;
             }
         }
 
@@ -344,6 +364,11 @@ namespace GeoGame.Windows
         private void game_autopilotShowCorrectionCheckBox_IsActiveChanged(object sender, EventArgs e)
         {
             game.AutoPhaseShowsCorrectionAfterWrongAnswer = game_autopilotShowCorrectionCheckBox.IsActive;
+        }
+
+        private void slovakSwitch_IsActiveChanged(object sender, EventArgs e)
+        {
+            game.IsGameLangDominationSlovak = slovakSwitch.IsActive;
         }
     }
 }

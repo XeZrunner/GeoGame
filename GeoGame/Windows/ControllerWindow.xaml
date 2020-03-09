@@ -10,7 +10,7 @@
         xmlns:xz_controlfx="clr-namespace:XeZrunner.UI.ControlEffects;assembly=XeZrunner.UI"
         xmlns:local="clr-namespace:GeoGame.Windows" KeyDown="Window_KeyDown"
         mc:Ignorable="d" Closing="Window_Closing" Loaded="Window_Loaded" Background="{DynamicResource Background}" Foreground="{DynamicResource Foreground}"
-        Title="ControllerWindow" Height="650" Width="805" Topmost="False" WindowStartupLocation="Manual" Left="65" Top="65" WindowStyle="None" AllowsTransparency="True" xz_controlfx:PointerTracker.Enabled="True">
+        Title="ControllerWindow" Height="670" Width="885" Topmost="False" WindowStartupLocation="Manual" Left="65" Top="65" WindowStyle="None" AllowsTransparency="True" xz_controlfx:PointerTracker.Enabled="True">
 
     <Grid>
         <Grid.RowDefinitions>
@@ -25,6 +25,11 @@
                     <ColumnDefinition />
                     <ColumnDefinition />
                 </Grid.ColumnDefinitions>
+
+                <StackPanel Orientation="Horizontal" Grid.Column="1" VerticalAlignment="Top" HorizontalAlignment="Right" Margin="32">
+                    <TextBlock Text="Slovak location names dominate" Margin="0,0,10,0"/>
+                    <xezui_controls:ToggleSwitch x:Name="slovakSwitch" IsActiveChanged="slovakSwitch_IsActiveChanged" IsEnabled="False" />
+                </StackPanel>
 
                 <StackPanel HorizontalAlignment="Center" VerticalAlignment="Center">
 

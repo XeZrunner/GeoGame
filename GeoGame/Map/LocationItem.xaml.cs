@@ -36,6 +36,27 @@ namespace GeoGame.Map
         double _ellipseWidth = 148;
         double _ellipseHeight = 0;
 
+        bool _SK_LangDomination = false;
+        public bool SK_LangDomination
+        {
+            get { return _SK_LangDomination; }
+            set 
+            {
+                _SK_LangDomination = value;
+
+                if (!value)
+                {
+                    locationText.FontSize = 36; Grid.SetRow(locationText, 0); locationText.FontFamily = new FontFamily("Segoe UI Bold");
+                    locationSKText.FontSize = 25; Grid.SetRow(locationSKText, 1); locationSKText.FontFamily = new FontFamily("Segoe UI Semibold");
+                }
+                else
+                {
+                    locationText.FontSize = 25; Grid.SetRow(locationText, 1); locationText.FontFamily = new FontFamily("Segoe UI Semibold");
+                    locationSKText.FontSize = 30; Grid.SetRow(locationSKText, 0); locationSKText.FontFamily = new FontFamily("Segoe UI Bold");
+                }
+            }
+        }
+
         public string Location
         {
             get { return _locationName; }

@@ -74,6 +74,7 @@ namespace GeoGame
             game.IsGameCursorEnabledChanged += Game_IsGameCursorEnabledChanged;
             game.IsLocationsOpacityEnabledChanged += Game_IsLocationsOpacityEnabledChanged;
             game.IsGameAutoPhaseChanged += Game_IsAutoPhaseChanged;
+            game.IsGameLangDominationSlovakChanged += Game_IsGameLangDominationSlovakChanged;
 
             // hide UI on start
             uiGrid.Visibility = Visibility.Hidden;
@@ -89,6 +90,11 @@ namespace GeoGame
 
             // Load stuff
             await LoadGame();
+        }
+
+        private void Game_IsGameLangDominationSlovakChanged(object sender, bool e)
+        {
+            mapping.ChangeLangDomination(e);
         }
 
         public void Game_IsAutoPhaseChanged(object sender, bool e)

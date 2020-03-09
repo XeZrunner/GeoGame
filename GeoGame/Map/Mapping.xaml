@@ -12,7 +12,7 @@
         <Grid MouseLeftButtonUp="Canvas_MouseLeftButtonUp">
 
             <!-- Source="E:\VS Projects\GeoGame\bin\Debug\maps\map.jpg" -->
-            <Image x:Name="image" Source="E:\VS Projects\GeoGame\bin\Debug\maps\map.jpg"
+            <Image x:Name="image" Source="H:\VS Projects\GeoGame\GeoGame\bin\Debug\Maps\map.JPG"
                    Stretch="Uniform"/>
 
             <Canvas x:Name="locations_canvas" Width="2598" Height="1931" Opacity="0.45">
@@ -116,7 +116,7 @@
                 <local:LocationItem Location="Nagykapos" LocationSK="Veľké Kapušany" LocationWidth="195" Panel.ZIndex="28"
                                     Canvas.Left="2017" Canvas.Top="264" Click="location_Click" />
 
-                <local:LocationItem Location="Veslóc" LocationSK="Veškovce" LocationWidth="105" Panel.ZIndex="29"
+                <local:LocationItem Location="Veskóc" LocationSK="Veškovce" LocationWidth="105" Panel.ZIndex="29"
                                     Canvas.Left="2164" Canvas.Top="220" Click="location_Click" />
 
                 <local:LocationItem Location="Mátyóc" LocationSK="Matovce" LocationWidth="145" Panel.ZIndex="30"
@@ -131,8 +131,8 @@
                 <local:LocationItem Location="Őrös" LocationSK="Strážne" LocationWidth="105" Panel.ZIndex="33"
                                     Canvas.Left="1134" Canvas.Top="1582" Click="location_Click" />
 
-                <local:LocationItem Location="Kistárkány" LocationSK="Malé Trakany" LocationWidth="125" Panel.ZIndex="32" Foreground="Black"
-                                    Canvas.Left="2212" Canvas.Top="1318" Click="location_Click" />
+                <local:LocationItem Location="Kistárkány" LocationSK="Malé Trakany" LocationWidth="185" Panel.ZIndex="32"
+                                    Canvas.Left="2223" Canvas.Top="1290" Click="location_Click" />
 
                 <local:LocationItem Location="Tiszacsernyő" LocationSK="Čierna nad Tisou" LocationWidth="255" LocationHeight="135" Panel.ZIndex="32"
                                     Canvas.Left="2190" Canvas.Top="1199" Click="location_Click" />

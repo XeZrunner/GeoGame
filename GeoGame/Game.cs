@@ -29,16 +29,19 @@ namespace GeoGame
         bool _IsGameCursorEnabled = true;
         bool _IsLocationsOpacityEnabled = false;
         bool _IsGameAutoPhase = false;
-        bool _AutoPhaseShowsCorrectionAfterWrongAnswer = true;
+        bool _IsGameLangDominationSlovak = false;
 
-        public bool AutoPhaseShowsCorrectionAfterWrongAnswer
+        public bool IsGameLangDominationSlovak
         {
-            get { return _AutoPhaseShowsCorrectionAfterWrongAnswer; }
-            set
+            get { return _IsGameLangDominationSlovak; }
+            set 
             {
-                _AutoPhaseShowsCorrectionAfterWrongAnswer = value;
+                _IsGameLangDominationSlovak = value;
+                IsGameLangDominationSlovakChanged.Invoke(null, value);
             }
         }
+
+        public bool AutoPhaseShowsCorrectionAfterWrongAnswer { get; set; } = true;
 
         public bool IsGameAutoPhase
         {
@@ -111,6 +114,7 @@ namespace GeoGame
         public event EventHandler<bool> IsGameCursorEnabledChanged;
         public event EventHandler<bool> IsLocationsOpacityEnabledChanged;
         public event EventHandler<bool> IsGameAutoPhaseChanged;
+        public event EventHandler<bool> IsGameLangDominationSlovakChanged;
 
         public void ChangeGameStatus(GameStatus newGameStatus)
         {

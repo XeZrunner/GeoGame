@@ -74,6 +74,17 @@ namespace GeoGame.Map
 
         public LocationItem.Mode StartLocationItemMode { get; set; } = LocationItem.Mode.Hidden;
 
+        public void ChangeLangDomination(bool slovak = true)
+        {
+            foreach (LocationItem item in locations_canvas.Children)
+            {
+                if (slovak)
+                    item.SK_LangDomination = true;
+                else
+                    item.SK_LangDomination = false;
+            }
+        }
+
         public void ChangeAllLocationItemStates(LocationItem.Mode newState)
         {
             foreach (LocationItem item in locations_canvas.Children)
@@ -92,6 +103,24 @@ namespace GeoGame.Map
                     item.State = newState;
             }
             LocationItemStatesChanged?.Invoke(null, -1);
+        }
+
+        /// <summary>
+        /// Returns a list of ALL possible locations that can be clicked in the game.
+        /// </summary>
+        public List<string> GetAllLocations(bool slovak = false)
+        {
+            List<string> _List = new List<string>();
+
+            foreach (LocationItem item in locations_canvas.Children)
+            {
+                if (!slovak)
+                    _List.Add(item.Location);
+                else
+                    _List.Add(item.LocationSK);
+            }
+
+            return _List;
         }
 
         public List<string> Locations = new List<string>()
@@ -180,12 +209,12 @@ namespace GeoGame.Map
             }
 
             int counter = 0;
-            foreach (string location in Locations_auto)
+            foreach (string location in GetAllLocations())
             {
                 if (location.Contains(newLocation))
                 {
                     TargetLocation = location;
-                    string finalLocation = location + " - " + Locations_SK[counter];
+                    string finalLocation = location + " - " + GetAllLocations(slovak:true)[counter]; //TODO: GetAllLocations(slovak:<boolvalue>) seems odd
                     TargetLocationChanged?.Invoke(null, finalLocation);
 
                     return;

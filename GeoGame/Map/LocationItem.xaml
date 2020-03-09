@@ -116,7 +116,7 @@
 
                 <TextBlock x:Name="locationSKText" Grid.Row="1" Text="Location_SK" Foreground="{Binding ElementName=main, Path=Foreground}"
                    HorizontalAlignment="Center" VerticalAlignment="Center"
-                   FontSize="25" FontFamily="Segoe UI Bold"/>
+                   FontSize="25" FontFamily="Segoe UI Semibold"/>
 
             </Grid>
         </Grid>
