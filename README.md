@@ -1,6 +1,8 @@
 # Geographic guessing game for GYMKCH 2019
 This game was created for the for the geographic-historic contest held at Gymnázium Kráľovský Chlmec on 23rd of October, 2019.
 
+Written in C# WPF (XAML), Visual Studio 2019.
+
 # Try it out!
 [Pre-compiled builds are available at the Releases tab. Click here!](https://github.com/XeZrunner/GeoGame/releases)
 
